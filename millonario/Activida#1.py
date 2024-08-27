@@ -17,11 +17,11 @@ def elegir_jugador(name):
     player = name[elegir]
     return player
 
-def Bienvenida (player):
+def Bienvenido (player):
     print(f"¡Bienvenido a {player} ¿Quién quiere ser millonario?!")
     print("Las reglas son las siguientes:")
     print("1) Se te hara una pregunta en cada ronda, si respondes bien pasas a la siguiente,")
-    print("   si tu respondes mal pierdes y se termina el juego.")
+    print("   si respondes mal pierdes y se termina el juego.")
     print("2) En el transcurso del tendras disponible 1 comodines disponibles: cambiar pregunta")
     print("   Para usar los comodines escribe la palabra comodin en la casilla de respuesta.")
     print("Buena suerte")
@@ -88,13 +88,14 @@ def fibonacci(n):
         return fibonacci(n-1) + fibonacci(n-2)
 
 # Función para jugar el juego
+# Función para jugar el juego
 def jugar_juego():
     puntaje = 1
     preguntas_hechas = []
     comodines = 0
     number_player = numero_de_jugadores()
     player = elegir_jugador(number_player)
-    reglas = Bienvenida(player)
+    reglas = Bienvenido(player)
     for i in range(1, 16):  
         pregunta = obtener_pregunta_aleatoria(preguntas_hechas)
         preguntas_hechas.append(pregunta)
@@ -105,16 +106,17 @@ def jugar_juego():
             if comodines < 2:
                 print("¿Qué comodín deseas usar?")
                 print("1. Cambiar pregunta")
-                print("2. Eliminar 2 opciones")
-                comodin = input("Ingrese el número del comodín: ")
+                comodin = input("Ingrese el número del comodín:")
 
                 if comodin == "1":
                     # Cambia la pregunta
                     pregunta = obtener_pregunta_aleatoria(preguntas_hechas)
                     comodines += 1
                     continue
-            else:
-                print ("Ohh lo siento ya no la puedes usar ")
+            else:   
+                print ("Ohh lo siento ya no la puedes usar")
+                preguntas_hechas[-1]
+                respuesta_usuario = hacer_pregunta(pregunta)
                 continue       
                     
         if verificar_respuesta(pregunta, respuesta_usuario):
@@ -138,4 +140,3 @@ def jugar_juego():
 
 # Iniciar el juego
 jugar_juego()
-
