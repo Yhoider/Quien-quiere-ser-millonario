@@ -12,17 +12,17 @@ def elegir_jugador(name):
     print("Elige un jugador:")
     lenght = len(name)
     for i in range (lenght):
-        print (i, name[i])
+        print (f"{(i+1)}) {name[(i)]}")
     elegir = int(input("Elige el numero del presonaje que quieres escoger:" ))
-    player = name[elegir]
+    player = name[elegir - 1]
     return player
 
 def Bienvenido (player):
-    print(f"¡Bienvenido a {player} ¿Quién quiere ser millonario?!")
+    print(f"¡Bienvenido {player} ¿Quién quiere ser millonario?!")
     print("Las reglas son las siguientes:")
     print("1) Se te hara una pregunta en cada ronda, si respondes bien pasas a la siguiente,")
     print("   si respondes mal pierdes y se termina el juego.")
-    print("2) En el transcurso del tendras disponible 1 comodines disponibles: cambiar pregunta")
+    print("2) En el transcurso del tendras disponible 2 comodines disponibles: cambiar pregunta")
     print("   Para usar los comodines escribe la palabra comodin en la casilla de respuesta.")
     print("Buena suerte")
 
