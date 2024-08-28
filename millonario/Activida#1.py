@@ -1,24 +1,12 @@
 import random as rd 
 
-def numero_de_jugadores ():
-    numero = int(input("Ingresa el numero de personas que van a jugar:")) + 1
-    name = []
-    for i in range (1, numero):
-        n = (input(f"Ingresa el nombre del jugador {i}:"))
-        name.append(n)
-    return name
 
-def elegir_jugador(name):
-    print("Elige un jugador:")
-    lenght = len(name)
-    for i in range (lenght):
-        print (f"{(i+1)}) {name[(i)]}")
-    elegir = int(input("Elige el numero del presonaje que quieres escoger:" ))
-    player = name[elegir - 1]
+def elegir_jugador():
+    player = input("Ingresar nombre:")
     return player
 
 def Bienvenido (player):
-    print(f"¡Bienvenido {player} ¿Quién quiere ser millonario?!")
+    print(f"¡Bienvenido {player} a ¿Quién quiere ser millonario?!")
     print("Las reglas son las siguientes:")
     print("1) Se te hara una pregunta en cada ronda, si respondes bien pasas a la siguiente,")
     print("   si respondes mal pierdes y se termina el juego.")
@@ -87,14 +75,13 @@ def fibonacci(n):
     else:
         return fibonacci(n-1) + fibonacci(n-2)
 
-# Función para jugar el juego
+
 # Función para jugar el juego
 def jugar_juego():
     puntaje = 1
     preguntas_hechas = []
     comodines = 0
-    number_player = numero_de_jugadores()
-    player = elegir_jugador(number_player)
+    player = elegir_jugador()
     reglas = Bienvenido(player)
     for i in range(1, 16):  
         pregunta = obtener_pregunta_aleatoria(preguntas_hechas)
